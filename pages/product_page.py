@@ -55,11 +55,19 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return None
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+
     def get_price(self):
         try:
             return str(self.browser.find_element(*ProductPageLocators.PRICE).text)
         except NoSuchElementException:
             return None
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared"
 
     def get_price_from_message(self):
         WebDriverWait(self.browser, 20).until(
@@ -74,4 +82,6 @@ class ProductPage(BasePage):
         price = self.get_price()
         price_message = self.get_price_from_message()
         assert price == price_message, 'Price does not match with expected'
+
+
 
