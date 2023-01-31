@@ -4,6 +4,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
+
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -16,8 +17,12 @@ class LoginPageLocators:
     LINK = (By.LINK_TEXT, 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/')
 
 class ProductPageLocators:
-    BASKET_BUTTON = (By.CLASS_NAME, "btn.btn-lg.btn-primary.btn-add-to-basket")
+    ADD_TO_BASKET_BUTTON = (By.CLASS_NAME, "btn.btn-lg.btn-primary.btn-add-to-basket")
     PRICE = (By.CSS_SELECTOR, ".col-sm-6.product_main>.price_color")
     PRODUCT_NAME = (By.CSS_SELECTOR, '.col-sm-6.product_main>h1')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alertinner>strong:nth-child(1)')
     PRICE_MESSAGE = (By.CSS_SELECTOR, '.alertinner>p>strong')
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini>span>a")
+    BASKET_WITH_ITEM = (By.CSS_SELECTOR, ".col-sm-6.h3")
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner")
+    BASKET_EMPTY_MESSAGE = (By.XPATH, '//div[@id="content_inner"]//p[contains(text(),"Your basket is empty.")]')

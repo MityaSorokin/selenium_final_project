@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from .main_page import MainPage
 from .locators import ProductPageLocators
+from .locators import BasePageLocators
 # from .locators import LoginPageLocators
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 import time
@@ -18,12 +19,12 @@ class ProductPage(BasePage):
 
 
     def should_be_basket_button(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), "No basket button found"
+        assert self.browser.is_element_present(*BasePageLocators.BASKET_BUTTON), "No basket button found"
         assert True
 
     def open_basket(self):
         try:
-            self.browser.find_element(*ProductPageLocators.BASKET_BUTTON).click()
+            self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
             return True
         except NoSuchElementException:
             return False

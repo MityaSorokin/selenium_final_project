@@ -36,6 +36,13 @@ class BasePage():
 
         return False
 
+    def open_basket(self):
+        try:
+            self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
+            return True
+        except NoSuchElementException:
+            return False
+
     def is_disappeared(self, how, what, timeout=3):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
@@ -43,7 +50,6 @@ class BasePage():
         except TimeoutException:
             return False
 
-        return True
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
