@@ -4,6 +4,7 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from .locators import BasePageLocators
+from .locators import ProductPageLocators
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
@@ -38,7 +39,7 @@ class BasePage():
 
     def open_basket(self):
         try:
-            self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
+            self.browser.find_element(*ProductPageLocators.BASKET_BUTTON).click()
             return True
         except NoSuchElementException:
             return False
@@ -64,7 +65,7 @@ class BasePage():
         print("this is answer -", answer)
         time.sleep(0.5)
         alert.accept()
-        time.sleep(1.5)
+        time.sleep(0.5)
         '''
         try:
             alert = self.browser.switch_to.alert

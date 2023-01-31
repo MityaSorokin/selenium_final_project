@@ -10,21 +10,17 @@ import time
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
-        self.should_be_basket_button()
-        #self.open_basket()
-        #self.should_be_product_name()
-        self.should_be_product_price()
         self.check_item_name()
         self.check_item_price()
 
 
     def should_be_basket_button(self):
-        assert self.browser.is_element_present(*BasePageLocators.BASKET_BUTTON), "No basket button found"
+        assert self.browser.is_element_present(*ProductPageLocators.BASKET_BUTTON), "No basket button found"
         assert True
 
     def open_basket(self):
         try:
-            self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
+            self.browser.find_element(*ProductPageLocators.BASKET_BUTTON).click()
             return True
         except NoSuchElementException:
             return False
@@ -41,13 +37,6 @@ class ProductPage(BasePage):
             return str(self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text)
         except NoSuchElementException:
             return False
-
-    def should_be_product_price(self):
-        try:
-            print("price from item page - ", str(self.browser.find_element(*ProductPageLocators.PRICE).text))
-            return str(self.browser.find_element(*ProductPageLocators.PRICE).text)
-        except NoSuchElementException:
-                return None
 
     def check_item_name(self):
         result = str(self.get_success_message_after_add_product_to_basket())
