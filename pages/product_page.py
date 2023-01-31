@@ -29,6 +29,12 @@ class ProductPage(BasePage):
         except NoSuchElementException:
             return False
 
+    def add_to_basket(self):
+        try:
+            self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
+        except NoSuchElementException:
+            return False
+
     def should_be_product_name(self):
         try:
             print(str(self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text))

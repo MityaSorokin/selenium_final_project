@@ -3,10 +3,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-
-
-class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class LoginPageLocators:
     LOGIN_NAME = (By.NAME, "login-username")
@@ -15,6 +12,7 @@ class LoginPageLocators:
     REG_PASS1 = (By.NAME, "registration-password1")
     REG_PASS2 = (By.NAME, "registration-password2")
     LINK = (By.LINK_TEXT, 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/')
+    SUBMIT_BUTTON = (By.NAME, "registration_submit")
 
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CLASS_NAME, "btn.btn-lg.btn-primary.btn-add-to-basket")
